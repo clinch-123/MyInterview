@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.interview.mapper.HamanImgRelationMapper">
+
+
+    <insert id="insertHamanIdList">
+        INSERT INTO haman_img_relation(haman_id, img_url) VALUES
+        <foreach collection="hamanList" item="item" separator=",">
+            (#{ item.id}, null)
+        </foreach>
+    </insert>
+    <update id="updateOne">
+        UPDATE haman_img_relation
+        SET img_url = #{url}
+        WHERE haman_id = #{hamanId}
+    </update>
+    <delete id="deleteByHamanId">
+        DELETE FROM haman_img_relation
+        WHERE img_url IS NULL and haman_id IN
+        <foreach collection="list" item="item" open="(" separator="," close=")">
+            #{item.id}
+        </foreach>
+    </delete>
+</mapper>

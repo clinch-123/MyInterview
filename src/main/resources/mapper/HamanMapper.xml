@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.interview.mapper.HamanMapper">
+    <resultMap id="HamanResultMap" type="com.interview.entity.Haman">
+        <id column="id" property="id"></id>
+        <!--  result属性是定义非主键字段与属性之间的关联关系      -->
+        <result column="batch_no" property="batchNo"></result>
+        <result column="platform_name" property="platformName"></result>
+        <result column="page_url" property="pageUrl"></result>
+        <result column="sku_id" property="skuId"></result>
+    </resultMap>
+
+    <select id="getBreakPriceUrls" resultType="com.interview.entity.Haman" resultMap="HamanResultMap">
+        SELECT * FROM haman
+        WHERE haman.platform_name = #{platform}  AND haman.batch_no = #{batchNo}
+        AND id not in (SELECT haman_id FROM haman_img_relation)
+        LIMIT #{count}
+    </select>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.interview.mapper.DictMapper">
+
+
+    <select id="dictMate" resultType="java.lang.String">
+        SELECT value
+        FROM dict
+        WHERE
+        (#{value} LIKE CONCAT('%', key1, '%') and #{value} LIKE CONCAT('%', key2, '%') and #{value} LIKE CONCAT('%', key3, '%'))
+        or
+        (#{value} LIKE CONCAT('%', key1, '%') and #{value} LIKE CONCAT('%', key2, '%'))
+    </select>
+</mapper>
