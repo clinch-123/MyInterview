@@ -1,5 +1,19 @@
 # 验证方法
 
+## 环境
+
+jdk21
+
+![image-20231105113906814](https://typora-images-1307135242.cos.ap-beijing.myqcloud.com/images/202311051139005.png)
+
+springboot3
+
+![image-20231105113931004](https://typora-images-1307135242.cos.ap-beijing.myqcloud.com/images/202311051139032.png)
+
+mysql8
+
+
+
 ## 一、解析店铺名称&匹配店铺名称
 
 1、导入interview.sql，我将标签词库1026.xlsx，这个字典导入到mysql里了，因为我认为字典的变更程度很小。并且数据很大，需要做快速检索，就放到mysql数据库里了。
@@ -81,7 +95,7 @@ http://localhost:8080/interview01/interview01
 
 访问
 
-http://localhost:8080/interview02/breakPriceUrls?platform=%E4%BA%AC%E4%B8%9C&count=10&batchNo=2023102801
+http://localhost:8080/interview02/breakPriceUrls?platform=京东&count=10&batchNo=2023102801
 
 ![image-20231105112647971](https://typora-images-1307135242.cos.ap-beijing.myqcloud.com/images/202311051133233.png)
 
